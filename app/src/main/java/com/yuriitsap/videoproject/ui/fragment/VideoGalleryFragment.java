@@ -107,6 +107,12 @@ public class VideoGalleryFragment extends Fragment implements
                 }
             }
         });
+        mBinding.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setVolume(10,10);
+            }
+        });
     }
 
     @Override
