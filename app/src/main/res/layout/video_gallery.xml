@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:paddingLeft="16dp"
+                  android:paddingRight="16dp">
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2">
+
+            <VideoView android:id="@+id/video_view"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_alignParentBottom="true"
+                       android:layout_alignParentLeft="true"
+                       android:layout_alignParentRight="true"
+                       android:layout_alignParentTop="true"
+                       android:layout_marginTop="2dp"
+                       android:elevation="8dp"/>
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView android:id="@+id/gallery_recycler_view"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:layout_weight="3"/>
+
+    </LinearLayout>
+</layout>

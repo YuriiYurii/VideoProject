@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable name="userVideo"
+                  type="com.yuriitsap.videoproject.ui.viewmodel.UserVideoViewModel"/>
+        <import type="android.graphics.Color"/>
+    </data>
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <com.yuriitsap.videoproject.ui.view.RoundedImageView android:id="@+id/user_avatar"
+                                                             android:layout_width="@dimen/user_avatar_height_width"
+                                                             android:layout_height="@dimen/user_avatar_height_width"
+                                                             app:is_active="false"
+                                                             bind:applyCircleTransformation="@{false}"
+                                                             bind:imageUrl="@{userVideo.userAvatar}"
+                                                             bind:placeholder="@{@drawable/user_avatar_placeholder}"/>
+
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
+
+            <TextView android:id="@+id/user_name"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="8dp"
+                      android:text="@{userVideo.userName}"
+                      android:textColor="@{userVideo.isPlaying ? Color.BLUE : Color.BLACK}"
+                      android:textStyle="bold"/>
+
+            <TextView android:id="@+id/video_description"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="8dp"
+                      android:layout_marginTop="8dp"
+                      android:text="@{userVideo.videoDescription}"
+                      android:textColor="@{userVideo.isPlaying ? Color.BLUE : Color.BLACK}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
