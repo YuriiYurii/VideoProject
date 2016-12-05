@@ -53,6 +53,11 @@ public class ChooseTagFragment extends Fragment implements View.OnClickListener 
         mBinding.tagEntryEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (TextUtils.isEmpty(mBinding.tagEntryEditText.getText())) {
+                    Snackbar.make(mBinding.coordinatorLayout, "Please enter tag you are searching for!!!",
+                            Snackbar.LENGTH_SHORT).show();
+                    return true;
+                }
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     mBus.post(new TagHasBeenChosenEvent(textView.getText().toString()));
                     return true;
